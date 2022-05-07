@@ -6,9 +6,17 @@ WORKDIR /usr/src/nuxt-app
 
 # update and install dependency
 RUN apk update && apk upgrade
-RUN apk add git
 
+RUN apk add git
 RUN npm install -g npm@8.6.0
+RUN apk add build-base
+
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 py3-pip && ln -sf python3 /usr/bin/python
+RUN python3 -m pip install --no-cache --upgrade pip setuptools
+RUN python3 -m pip install --no-cache --upgrade tidal-dl
+
+
 
 # copy the app, note .dockerignore 
 COPY package*.json /usr/src/nuxt-app/
