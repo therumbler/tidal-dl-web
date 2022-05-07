@@ -1,12 +1,18 @@
 <template>
-    <li>
-        <h4>{{artist?.name}}</h4>
-        <img class="image" :src="'https://resources.tidal.com/images/' + artist.picture?.replace(/-/g,'/') + '/750x750.jpg'" />
-        <div>{{artist}}</div>
-    </li>
+  <li>
+    <h4>{{ artist?.name }}</h4>
+    <img
+      class="image"
+      :src="
+        'https://resources.tidal.com/images/' +
+        artist.picture?.replace(/-/g, '/') +
+        '/750x750.jpg'
+      "
+    />
+  </li>
 </template>
 <script>
 export default {
-  props: ['artist']
-}
+  props: ["artist"],
+};
 </script>

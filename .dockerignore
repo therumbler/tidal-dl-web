@@ -10,3 +10,4 @@ Makefile
 .cache
 .output
 .env
+dist

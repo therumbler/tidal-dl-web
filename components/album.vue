@@ -1,19 +1,20 @@
 <template>
-  <div>
-    <div>result</div>
-    <h4>{{ result?.value?.name }}</h4>
+  <li>
+    <h4>{{ album?.title }}</h4>
     <img
       class="image"
       :src="
         'https://resources.tidal.com/images/' +
-        result?.value.picture.replace('-', '/') +
+        album.cover?.replace(/-/g, '/') +
         '/750x750.jpg'
       "
     />
-  </div>
+    <SaveButton :urlToSave="album.url" />
+  </li>
 </template>
+
 <script>
 export default {
-  props: ["result"],
+  props: ["album"],
 };
 </script>

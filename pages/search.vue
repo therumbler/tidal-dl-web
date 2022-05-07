@@ -7,20 +7,24 @@
     </form>
 
     <div>
-        <h2>Top Hit</h2>
-        <Result :result="results?.topHit" />
-        <h2>Artists</h2>
-        <ul>
-           
-                <Artist :artist="artist"   v-for="artist in results?.artists.items" :key="artist.id"/>
-            
-        </ul>
-      <!-- <div v-for="result in results" :key="result.data.asset?.id">
-        <a :href="'/video/' + result.data.asset?.id">
-          <div>{{result.data.contentDisplay?.header}} — {{ result.data.contentDisplay?.title }}</div>
-          <img class="image" :src="result.data.asset?.images?.defaultUrl" />
-        </a>
-      </div> -->
+      <h2>Top Hit</h2>
+      <Result :result="results?.topHit" />
+      <h2>Albums</h2>
+      <ul>
+        <Album
+          :album="album"
+          v-for="album in results?.albums.items"
+          :key="album.id"
+        />
+      </ul>
+      <h2>Artists</h2>
+      <ul>
+        <Artist
+          :artist="artist"
+          v-for="artist in results?.artists.items"
+          :key="artist.id"
+        />
+      </ul>
     </div>
     <div>{{ results }}</div>
   </div>
@@ -37,9 +41,11 @@ const useQuery = () => useState("query");
 const results = useResults();
 const query = useQuery();
 function filterResults(results) {
-  console.log('filterResults', results);
-  const filteredResults = results.filter((result) => result.contentType == 'video');
-  console.log('filteredResults', filteredResults);
+  console.log("filterResults", results);
+  const filteredResults = results.filter(
+    (result) => result.contentType == "video"
+  );
+  console.log("filteredResults", filteredResults);
   return filteredResults;
 }
 async function performSearch() {
