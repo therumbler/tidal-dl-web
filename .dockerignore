@@ -1,9 +1,8 @@
 node_modules
-*.log*
-.nuxt
-.nitro
-.cache
-.output
+.gitignore
+Dockerfile
+.dockerignore
+Makefile
 .env
 *.log*
 .nuxt
@@ -11,4 +10,3 @@ node_modules
 .cache
 .output
 .env
-dist
