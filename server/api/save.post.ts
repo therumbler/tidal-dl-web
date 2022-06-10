@@ -1,10 +1,15 @@
-import Tidal from "~~/lib/tidal";
+import TidalDL from "~~/lib/tidaldl";
 export default defineEventHandler(async (event) => {
-  const body = await useBody(event);
-  const data = JSON.parse(body);
-  console.log("saving url ", data.url);
+  console.log("in save.post.ts");
 
-  const tidal = new Tidal();
-  const resp = await tidal.save(data.url);
+  const body = await useBody(event);
+
+  console.log("body.url: ", body.url);
+  if (body.url === undefined) {
+    return { error: "no body.url" };
+  }
+
+  const tidaldl = new TidalDL();
+  const resp = await tidaldl.save(body.url);
   return resp;
 });
