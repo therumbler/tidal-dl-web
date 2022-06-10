@@ -11,3 +11,4 @@ Makefile
 .output
 .env
 dist
+settings
