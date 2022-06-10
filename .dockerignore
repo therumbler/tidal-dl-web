@@ -12,3 +12,4 @@ Makefile
 .env
 dist
 settings
+download

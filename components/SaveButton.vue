@@ -14,13 +14,22 @@ export default {
       const data = {
         url: this.urlToSave,
       };
-      console.log("saving data", data);
+      const body = JSON.stringify(data);
+      console.log("saving body", body);
       console.log("url", url);
-      const resp = await useFetch(url, {
+      // const resp = await useFetch(url, {
+      //   method: "POST",
+      //   body: body,
+      //   headers: {'content-type': 'application/json; charset=UTF-8'},
+      // });
+      // console.log("response", resp.data._rawValue);
+
+      const resp = await fetch(url, {
         method: "POST",
-        body: JSON.stringify(data),
+        body: body,
+        headers: { "content-type": "application/json; charset=UTF-8" },
       });
-      console.log("response", resp.data._rawValue);
+      console.log("resp", resp);
       //   this.resp = resp;
     },
   },
