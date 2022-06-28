@@ -18,7 +18,7 @@ RUN python3 -m pip install --no-cache --upgrade tidal-dl
 
 
 
-# copy the app, note .dockerignore 
+# copy the app, note .dockerignore
 COPY package*.json /usr/src/nuxt-app/
 RUN npm install
 COPY . /usr/src/nuxt-app/
